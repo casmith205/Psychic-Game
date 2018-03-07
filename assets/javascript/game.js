@@ -51,7 +51,7 @@ document.onkeyup = function (event) {
     }
     
     if(guessesLeft==0) {
-        // add a win into the log
+        // add a loss into the log
         losses++;
         // reset the other areas of the game
         guessesLeft=9;
