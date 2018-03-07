@@ -17,8 +17,7 @@ for (i=97;i<=122;i++){
 // Connect variables to HTML & starting position
 var wins = document.getElementById("wins");
 var losses = document.getElementById("losses");
-var guesses = 9;
-var guessesLeft = 9; //document.getElementById("remainingGuesses") how to connect to html and set initial value?
+var guessesLeft = 9; 
 var guessedLetters = [document.getElementById("guessedLetters")];
 
 
@@ -41,8 +40,7 @@ document.onkeyup = function (event) {
         // add a win into the log
         wins++;
         // reset the other areas of the game
-        guesses=9;
-        guessesLeft=guesses;
+        guessesLeft=9;
         guessedLetters=[];
         
     } else {
@@ -56,8 +54,7 @@ document.onkeyup = function (event) {
         // add a win into the log
         losses++;
         // reset the other areas of the game
-        guesses=9;
-        guessesLeft=guesses;
+        guessesLeft=9;
         guessedLetters=[];
     }
 
