@@ -18,7 +18,7 @@ for (i=97;i<=122;i++){
 var wins = document.getElementById("wins");
 var losses = document.getElementById("losses");
 var guessesLeft = 9; 
-var guessedLetters = [document.getElementById("guessedLetters")];
+var guessedLetters = [];
 
 
 // Get computer's guess
@@ -67,7 +67,6 @@ document.onkeyup = function (event) {
 
 console.log(wins);
 console.log(losses);
-console.log(guesses);
 console.log(guessesLeft);
 console.log(guessedLetters);
 
