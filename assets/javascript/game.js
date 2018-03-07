@@ -23,10 +23,12 @@ var guessedLetters = [];
 
 // Get computer's guess
 var computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-console.log(computerLetter);
 
 // This function is run whenever the user presses a key.
 document.onkeyup = function (event) {
+    // Checking what the computer generated for testing purposes
+    console.log(computerLetter);
+    
     // Determines which key was pressed.
     var userGuess = event.key;
     console.log(userGuess);
@@ -42,6 +44,7 @@ document.onkeyup = function (event) {
         // reset the other areas of the game
         guessesLeft=9;
         guessedLetters=[];
+        computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         
     } else {
         // reduce the guesses left 
@@ -56,6 +59,7 @@ document.onkeyup = function (event) {
         // reset the other areas of the game
         guessesLeft=9;
         guessedLetters=[];
+        computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     }
 
     // Changing HTML text
