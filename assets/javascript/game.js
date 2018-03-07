@@ -1,10 +1,12 @@
 // Creating a function to determine if user correctly guessed
 function isPsychic (user, computer){
-    if(user===computer){
-        return "Win"
-    } else {
-        return "Incorrect"
-    }
+
+        if(user===computer){
+            return "Win"
+        } else {
+            return "Incorrect"
+        }
+
 };
 
 
@@ -15,11 +17,21 @@ function reset (){
     computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 }
 
-// Creates an array for the entire alphabet(lowercase)
+// Creates an array for the computer choices (entire alphabet - lowercase)
 computerChoices = [];
 for (i=97;i<=122;i++){
     computerChoices[computerChoices.length] = String.fromCharCode(i);
 };
+
+// Cretes an array for the user vailable options (entire alphabet - lowercase)
+userChoices = [];
+for (i=97;i<=122;i++){
+    userChoices[userChoices.length] = String.fromCharCode(i);
+};
+
+var validUserChoice = userChoices.find(function letter (input){
+    return (input) = input;
+});
 
 // Connect variables to HTML & starting position
 var wins = document.getElementById("wins");
