@@ -1,13 +1,25 @@
 // Creating a function to determine if user correctly guessed
 function isPsychic (user, computer){
 
-        if(user===computer){
-            return "Win"
-        } else {
-            return "Incorrect"
-        }
+    if(user===computer){
+        return "Win"
+    } else {
+        return "Incorrect"
+    }
 
 };
+
+// Checking whether user input is in the userChoices array
+function inArray(user, arr)
+{
+    var count=arr.length;
+    for(var i=0;i<count;i++)
+    {
+        if(arr[i]===user){return true;}
+    }
+    return false;
+}
+
 
 
 // Reset the funtion after a win/loss
@@ -29,9 +41,7 @@ for (i=97;i<=122;i++){
     userChoices[userChoices.length] = String.fromCharCode(i);
 };
 
-var validUserChoice = userChoices.find(function letter (input){
-    return (input) = input;
-});
+
 
 // Connect variables to HTML & starting position
 var wins = document.getElementById("wins");
@@ -51,30 +61,41 @@ document.onkeyup = function (event) {
     // Determines which key was pressed.
     var userGuess = event.key;
     console.log(userGuess);
+    
+    // Checks if input is accpetable
+    var validLetter = inArray(userGuess, userChoices); 
+    console.log(validLetter);
 
     // creating a "result" variable for the resilt of the isPsychic function
     var result = isPsychic(userGuess, computerLetter);
     console.log(result);
-    
-    // Creating an "If" stmt to tell what to do for a win/incorrect result
-    if( result=="Win"){
-        // add a win into the log
-        wins++;
-        reset ();
+
+    // Creating an "If" stmt to first check if valids input, and then if win/incorrect result
+    if(validLetter == true){
+        // Creating an "If" stmt to tell what to do for a win/incorrect result
+        if( result=="Win"){
+            // add a win into the log
+            wins++;
+            reset ();
+            
+        } else {
+            // reduce the guesses left 
+            guessesLeft--;
+            // record the guesses so far
+            guessedLetters.push(userGuess);
+        }
+        
+        if(guessesLeft==0) {
+            // add a loss into the log
+            losses++;
+            reset ()
+
+        } 
         
     } else {
-        // reduce the guesses left 
-        guessesLeft--;
-        // record the guesses so far
-        guessedLetters.push(userGuess);
-    }
-    
-    if(guessesLeft==0) {
-        // add a loss into the log
-        losses++;
-        reset ()
+            alert("Invalid input! Please use the alphabet :)")
 
-    }
+    };  
 
     // Changing HTML text
     document.getElementById("wins").innerHTML = wins;
