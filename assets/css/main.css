@@ -1,5 +1,6 @@
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url(../images/subtle_white_mini_waves.png)
 }
 
 h1{
@@ -22,4 +23,11 @@ p{
 
 hr{
     margin: auto;
+}
+
+.metrics{
+    width: 320px;
+    border: seagreen thick solid;
+    margin-left: 20px;
+    background: whitesmoke;
 }
