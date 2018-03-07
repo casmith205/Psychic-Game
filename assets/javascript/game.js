@@ -8,6 +8,13 @@ function isPsychic (user, computer){
 };
 
 
+// Reset the funtion after a win/loss
+function reset (){
+    guessesLeft=9;
+    guessedLetters=[];
+    computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+}
+
 // Creates an array for the entire alphabet(lowercase)
 computerChoices = [];
 for (i=97;i<=122;i++){
@@ -41,10 +48,7 @@ document.onkeyup = function (event) {
     if( result=="Win"){
         // add a win into the log
         wins++;
-        // reset the other areas of the game
-        guessesLeft=9;
-        guessedLetters=[];
-        computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        reset ();
         
     } else {
         // reduce the guesses left 
@@ -56,10 +60,8 @@ document.onkeyup = function (event) {
     if(guessesLeft==0) {
         // add a loss into the log
         losses++;
-        // reset the other areas of the game
-        guessesLeft=9;
-        guessedLetters=[];
-        computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        reset ()
+
     }
 
     // Changing HTML text
