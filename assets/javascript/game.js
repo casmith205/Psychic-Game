@@ -35,17 +35,11 @@ for (i=97;i<=122;i++){
     computerChoices[computerChoices.length] = String.fromCharCode(i);
 };
 
-// Cretes an array for the user vailable options (entire alphabet - lowercase)
-userChoices = [];
-for (i=97;i<=122;i++){
-    userChoices[userChoices.length] = String.fromCharCode(i);
-};
-
 
 
 // Connect variables to HTML & starting position
-var wins = document.getElementById("wins");
-var losses = document.getElementById("losses");
+var wins = 0;
+var losses = 0;
 var guessesLeft = 9; 
 var guessedLetters = [];
 
@@ -63,7 +57,7 @@ document.onkeyup = function (event) {
     console.log(userGuess);
     
     // Checks if input is accpetable
-    var validLetter = inArray(userGuess, userChoices); 
+    var validLetter = inArray(userGuess, computerChoices); 
     console.log(validLetter);
 
     // creating a "result" variable for the resilt of the isPsychic function
@@ -103,10 +97,5 @@ document.onkeyup = function (event) {
     document.getElementById("remainingGuesses").innerHTML = guessesLeft;
     document.getElementById("guessedLetters").innerHTML = guessedLetters;
 
-
-console.log(wins);
-console.log(losses);
-console.log(guessesLeft);
-console.log(guessedLetters);
 
 };
