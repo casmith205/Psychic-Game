@@ -21,7 +21,6 @@ function inArray(user, arr)
 }
 
 
-
 // Reset the funtion after a win/loss
 function reset (){
     guessesLeft=9;
@@ -34,7 +33,6 @@ computerChoices = [];
 for (i=97;i<=122;i++){
     computerChoices[computerChoices.length] = String.fromCharCode(i);
 };
-
 
 
 // Connect variables to HTML & starting position
@@ -96,6 +94,5 @@ document.onkeyup = function (event) {
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("remainingGuesses").innerHTML = guessesLeft;
     document.getElementById("guessedLetters").innerHTML = guessedLetters;
-
 
 };
