@@ -1,12 +1,13 @@
 // Creating a function to determine if user correctly guessed
-function isPsychic (user, computer){
-
-    if(user===computer){
+function isPsychic (user, computer)
+{
+    if(user===computer)
+    {
         return "Win"
-    } else {
+    } else 
+    {
         return "Incorrect"
     }
-
 };
 
 // Checking whether user input is in the userChoices array
@@ -15,14 +16,18 @@ function inArray(user, arr)
     var count=arr.length;
     for(var i=0;i<count;i++)
     {
-        if(arr[i]===user){return true;}
+        if(arr[i]===user)
+        {
+            return true;
+        };
     }
     return false;
 }
 
 
 // Reset the funtion after a win/loss
-function reset (){
+function reset ()
+{
     guessesLeft=9;
     guessedLetters=[];
     computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
@@ -30,7 +35,8 @@ function reset (){
 
 // Creates an array for the computer choices (entire alphabet - lowercase)
 computerChoices = [];
-for (i=97;i<=122;i++){
+for (i=97;i<=122;i++)
+{
     computerChoices[computerChoices.length] = String.fromCharCode(i);
 };
 
@@ -63,28 +69,34 @@ document.onkeyup = function (event) {
     console.log(result);
 
     // Creating an "If" stmt to first check if valids input, and then if win/incorrect result
-    if(validLetter == true){
+    if(validLetter == true)
+    {
         // Creating an "If" stmt to tell what to do for a win/incorrect result
-        if( result=="Win"){
+        if( result=="Win")
+        {
             // add a win into the log
             wins++;
             reset ();
             
-        } else {
+        } 
+        else 
+        {
             // reduce the guesses left 
             guessesLeft--;
             // record the guesses so far
             guessedLetters.push(userGuess);
         }
         
-        if(guessesLeft==0) {
+        if(guessesLeft==0) 
+        {
             // add a loss into the log
             losses++;
             reset ()
-
         } 
         
-    } else {
+    } 
+    else 
+    {
             alert("Invalid input! Please use the alphabet :)")
 
     };  
